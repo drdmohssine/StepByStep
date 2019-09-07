@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from django.conf.urls import url
+from  SbSApp import views
 urlpatterns = [
+    url(r'^$', views.home, name='home'),
+    url(r'^Step/(?P<id>\d+)/$', views.getnode, name='Step'),
     path('admin/', admin.site.urls),
+
 ]
