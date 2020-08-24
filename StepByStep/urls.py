@@ -20,6 +20,7 @@ from  SbSApp import views
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^Step/(?P<id>\d+)/$', views.getnode, name='Step'),
+    url(r'^Step/(?P<id>\d+)/delete/$', views.deletenode , name='Delete'),
     path('admin/', admin.site.urls),
 
 ]

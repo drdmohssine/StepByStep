@@ -1,5 +1,6 @@
 from neo4j import GraphDatabase
 
+#On Browser http://localhost:7474/browser/
 driver = GraphDatabase.driver("bolt://172.17.0.3:7687", auth=("neo4j", "test"))
 driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", "test"))
 session = driver.session()
@@ -107,7 +108,7 @@ class getnodeclass():
     getnode = getnodefunc2()
     id = getnode.id
     labels = getnode.labels
-    title = getnode['Title']
+    title = getnode['Title']https://pbs.twimg.com/media/EUnIZTOU4AEqQZP?format=jpg&name=large
     picture = getnode['Picture']
     text = getnode['Text']
     """

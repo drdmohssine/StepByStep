@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .forms import GetStepId
 
 from neo4j import GraphDatabase
-driver = GraphDatabase.driver("bolt://172.17.0.3:7687", auth=("neo4j", "test"))
+driver = GraphDatabase.driver("bolt://172.17.0.4:7687", auth=("neo4j", "test"))
 session = driver.session()
 # Create your views here.
 
@@ -101,3 +101,10 @@ def getnode(request, id):
 
 
     return render(request, 'steps.html', {'node0list': node0list,'node1list':node1list,'getparents':getparents,})
+
+
+def deletenode(request, id):
+    if request.method == "POST":
+        session.run("MATCH (p:Step) where ID(p) = $nodeid OPTIONAL MATCH (p)-[r]-() DELETE r,p", nodeid=int(id))
+    return render(request, 'steps.html')
+    
